@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FashionFeetModelStoreContainer" CdmEntityContainer="FashionFeetEntities">
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="FashionFeetModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="CateId" ColumnName="CateId" />
+          <ScalarProperty Name="CateName" ColumnName="CateName" />
+          <ScalarProperty Name="CateDes" ColumnName="CateDes" />
+          <ScalarProperty Name="CateImageUrl" ColumnName="CateImageUrl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="FashionFeetModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="ProdId" ColumnName="ProdId" />
+          <ScalarProperty Name="ProdName" ColumnName="ProdName" />
+          <ScalarProperty Name="CateId" ColumnName="CateId" />
+          <ScalarProperty Name="ProdPrice" ColumnName="ProdPrice" />
+          <ScalarProperty Name="ProdSize36Quan" ColumnName="ProdSize36Quan" />
+          <ScalarProperty Name="ProdSize37Quan" ColumnName="ProdSize37Quan" />
+          <ScalarProperty Name="ProdSize38Quan" ColumnName="ProdSize38Quan" />
+          <ScalarProperty Name="ProdSize39Quan" ColumnName="ProdSize39Quan" />
+          <ScalarProperty Name="ProdImageUrl" ColumnName="ProdImageUrl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="DeleteCate" FunctionName="FashionFeetModel.Store.DeleteCate" />
+    <FunctionImportMapping FunctionImportName="DeleteProd" FunctionName="FashionFeetModel.Store.DeleteProd" />
+    <FunctionImportMapping FunctionImportName="InsertCate" FunctionName="FashionFeetModel.Store.InsertCate" />
+    <FunctionImportMapping FunctionImportName="InsertProd" FunctionName="FashionFeetModel.Store.InsertProd" />
+    <FunctionImportMapping FunctionImportName="InsertProduct" FunctionName="FashionFeetModel.Store.InsertProduct" />
+    <FunctionImportMapping FunctionImportName="SelectAllCateIds" FunctionName="FashionFeetModel.Store.SelectAllCateIds" />
+    <FunctionImportMapping FunctionImportName="SelectAllCateNames" FunctionName="FashionFeetModel.Store.SelectAllCateNames" />
+    <FunctionImportMapping FunctionImportName="SelectAllCateProds" FunctionName="FashionFeetModel.Store.SelectAllCateProds">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FashionFeetModel.SelectAllCateProds_Result">
+          <ScalarProperty Name="ProdId" ColumnName="ProdId" />
+          <ScalarProperty Name="ProdName" ColumnName="ProdName" />
+          <ScalarProperty Name="CateId" ColumnName="CateId" />
+          <ScalarProperty Name="ProdPrice" ColumnName="ProdPrice" />
+          <ScalarProperty Name="ProdSize36Quan" ColumnName="ProdSize36Quan" />
+          <ScalarProperty Name="ProdSize37Quan" ColumnName="ProdSize37Quan" />
+          <ScalarProperty Name="ProdSize38Quan" ColumnName="ProdSize38Quan" />
+          <ScalarProperty Name="ProdSize39Quan" ColumnName="ProdSize39Quan" />
+          <ScalarProperty Name="ProdImageUrl" ColumnName="ProdImageUrl" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectAllCates" FunctionName="FashionFeetModel.Store.SelectAllCates">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FashionFeetModel.SelectAllCates_Result">
+          <ScalarProperty Name="CateId" ColumnName="CateId" />
+          <ScalarProperty Name="CateName" ColumnName="CateName" />
+          <ScalarProperty Name="CateDes" ColumnName="CateDes" />
+          <ScalarProperty Name="CateImageUrl" ColumnName="CateImageUrl" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectAllProdIds" FunctionName="FashionFeetModel.Store.SelectAllProdIds" />
+    <FunctionImportMapping FunctionImportName="SelectAllProds" FunctionName="FashionFeetModel.Store.SelectAllProds">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FashionFeetModel.SelectAllProds_Result">
+          <ScalarProperty Name="ProdId" ColumnName="ProdId" />
+          <ScalarProperty Name="ProdName" ColumnName="ProdName" />
+          <ScalarProperty Name="CateId" ColumnName="CateId" />
+          <ScalarProperty Name="ProdPrice" ColumnName="ProdPrice" />
+          <ScalarProperty Name="ProdSize36Quan" ColumnName="ProdSize36Quan" />
+          <ScalarProperty Name="ProdSize37Quan" ColumnName="ProdSize37Quan" />
+          <ScalarProperty Name="ProdSize38Quan" ColumnName="ProdSize38Quan" />
+          <ScalarProperty Name="ProdSize39Quan" ColumnName="ProdSize39Quan" />
+          <ScalarProperty Name="ProdImageUrl" ColumnName="ProdImageUrl" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectCateIdByCateName" FunctionName="FashionFeetModel.Store.SelectCateIdByCateName" />
+    <FunctionImportMapping FunctionImportName="UpdateCate" FunctionName="FashionFeetModel.Store.UpdateCate" />
+    <FunctionImportMapping FunctionImportName="UpdateProd" FunctionName="FashionFeetModel.Store.UpdateProd" />
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FashionFeetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CateId" />
+          </Key>
+          <Property Name="CateId" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CateName" Type="varchar(max)" Nullable="false" />
+          <Property Name="CateDes" Type="varchar(max)" />
+          <Property Name="CateImageUrl" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProdId" />
+          </Key>
+          <Property Name="ProdId" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ProdName" Type="varchar(max)" Nullable="false" />
+          <Property Name="CateId" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ProdPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="ProdSize36Quan" Type="int" Nullable="false" />
+          <Property Name="ProdSize37Quan" Type="int" Nullable="false" />
+          <Property Name="ProdSize38Quan" Type="int" Nullable="false" />
+          <Property Name="ProdSize39Quan" Type="int" Nullable="false" />
+          <Property Name="ProdImageUrl" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Product__CateId">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CateId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="DeleteCate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CateId" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="DeleteProd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProdId" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="InsertCate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CateId" Type="varchar" Mode="In" />
+          <Parameter Name="CateName" Type="varchar(max)" Mode="In" />
+          <Parameter Name="CateDes" Type="varchar(max)" Mode="In" />
+          <Parameter Name="CateImageUrl" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="InsertProd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProdId" Type="varchar" Mode="In" />
+          <Parameter Name="ProdName" Type="varchar(max)" Mode="In" />
+          <Parameter Name="CateId" Type="varchar" Mode="In" />
+          <Parameter Name="ProdPrice" Type="decimal" Mode="In" />
+          <Parameter Name="ProdSize36Quan" Type="int" Mode="In" />
+          <Parameter Name="ProdSize37Quan" Type="int" Mode="In" />
+          <Parameter Name="ProdSize38Quan" Type="int" Mode="In" />
+          <Parameter Name="ProdSize39Quan" Type="int" Mode="In" />
+          <Parameter Name="ProdImageUrl" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="InsertProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProdId" Type="varchar" Mode="In" />
+          <Parameter Name="ProdName" Type="text" Mode="In" />
+          <Parameter Name="CateId" Type="varchar" Mode="In" />
+          <Parameter Name="ProdPrice" Type="decimal" Mode="In" />
+          <Parameter Name="ProdSize36Quan" Type="int" Mode="In" />
+          <Parameter Name="ProdSize37Quan" Type="int" Mode="In" />
+          <Parameter Name="ProdSize38Quan" Type="int" Mode="In" />
+          <Parameter Name="ProdSize39Quan" Type="int" Mode="In" />
+          <Parameter Name="ProdImageUrl" Type="text" Mode="In" />
+        </Function>
+        <Function Name="SelectAllCateIds" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SelectAllCateNames" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SelectAllCateProds" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CateId" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SelectAllCates" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SelectAllProdIds" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SelectAllProds" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SelectCateIdByCateName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CateName" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="UpdateCate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CateId" Type="varchar" Mode="In" />
+          <Parameter Name="CateName" Type="varchar(max)" Mode="In" />
+          <Parameter Name="CateDes" Type="varchar(max)" Mode="In" />
+          <Parameter Name="CateImageUrl" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="UpdateProd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProdId" Type="varchar" Mode="In" />
+          <Parameter Name="ProdName" Type="varchar(max)" Mode="In" />
+          <Parameter Name="CateId" Type="varchar" Mode="In" />
+          <Parameter Name="ProdPrice" Type="decimal" Mode="In" />
+          <Parameter Name="ProdSize36Quan" Type="int" Mode="In" />
+          <Parameter Name="ProdSize37Quan" Type="int" Mode="In" />
+          <Parameter Name="ProdSize38Quan" Type="int" Mode="In" />
+          <Parameter Name="ProdSize39Quan" Type="int" Mode="In" />
+          <Parameter Name="ProdImageUrl" Type="varchar(max)" Mode="In" />
+        </Function>
+        <EntityContainer Name="FashionFeetModelStoreContainer">
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Product__CateId" Association="Self.FK__Product__CateId">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FashionFeetModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CateId" />
+          </Key>
+          <Property Name="CateId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CateName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CateDes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CateImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Products" Relationship="Self.FK__Product__CateId" FromRole="Category" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProdId" />
+          </Key>
+          <Property Name="ProdId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProdName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CateId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProdPrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="ProdSize36Quan" Type="Int32" Nullable="false" />
+          <Property Name="ProdSize37Quan" Type="Int32" Nullable="false" />
+          <Property Name="ProdSize38Quan" Type="Int32" Nullable="false" />
+          <Property Name="ProdSize39Quan" Type="Int32" Nullable="false" />
+          <Property Name="ProdImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Category" Relationship="Self.FK__Product__CateId" FromRole="Product" ToRole="Category" />
+        </EntityType>
+        <Association Name="FK__Product__CateId">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CateId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FashionFeetEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <AssociationSet Name="FK__Product__CateId" Association="Self.FK__Product__CateId">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <FunctionImport Name="DeleteCate">
+            <Parameter Name="CateId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteProd">
+            <Parameter Name="ProdId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertCate">
+            <Parameter Name="CateId" Mode="In" Type="String" />
+            <Parameter Name="CateName" Mode="In" Type="String" />
+            <Parameter Name="CateDes" Mode="In" Type="String" />
+            <Parameter Name="CateImageUrl" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertProd">
+            <Parameter Name="ProdId" Mode="In" Type="String" />
+            <Parameter Name="ProdName" Mode="In" Type="String" />
+            <Parameter Name="CateId" Mode="In" Type="String" />
+            <Parameter Name="ProdPrice" Mode="In" Type="Decimal" />
+            <Parameter Name="ProdSize36Quan" Mode="In" Type="Int32" />
+            <Parameter Name="ProdSize37Quan" Mode="In" Type="Int32" />
+            <Parameter Name="ProdSize38Quan" Mode="In" Type="Int32" />
+            <Parameter Name="ProdSize39Quan" Mode="In" Type="Int32" />
+            <Parameter Name="ProdImageUrl" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertProduct">
+            <Parameter Name="ProdId" Mode="In" Type="String" />
+            <Parameter Name="ProdName" Mode="In" Type="String" />
+            <Parameter Name="CateId" Mode="In" Type="String" />
+            <Parameter Name="ProdPrice" Mode="In" Type="Decimal" />
+            <Parameter Name="ProdSize36Quan" Mode="In" Type="Int32" />
+            <Parameter Name="ProdSize37Quan" Mode="In" Type="Int32" />
+            <Parameter Name="ProdSize38Quan" Mode="In" Type="Int32" />
+            <Parameter Name="ProdSize39Quan" Mode="In" Type="Int32" />
+            <Parameter Name="ProdImageUrl" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SelectAllCateIds" ReturnType="Collection(String)" />
+          <FunctionImport Name="SelectAllCateNames" ReturnType="Collection(String)" />
+          <FunctionImport Name="SelectAllCateProds" ReturnType="Collection(FashionFeetModel.SelectAllCateProds_Result)">
+            <Parameter Name="CateId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SelectAllCates" ReturnType="Collection(FashionFeetModel.SelectAllCates_Result)" />
+          <FunctionImport Name="SelectAllProdIds" ReturnType="Collection(String)" />
+          <FunctionImport Name="SelectAllProds" ReturnType="Collection(FashionFeetModel.SelectAllProds_Result)" />
+          <FunctionImport Name="SelectCateIdByCateName" ReturnType="Collection(String)">
+            <Parameter Name="CateName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateCate">
+            <Parameter Name="CateId" Mode="In" Type="String" />
+            <Parameter Name="CateName" Mode="In" Type="String" />
+            <Parameter Name="CateDes" Mode="In" Type="String" />
+            <Parameter Name="CateImageUrl" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateProd">
+            <Parameter Name="ProdId" Mode="In" Type="String" />
+            <Parameter Name="ProdName" Mode="In" Type="String" />
+            <Parameter Name="CateId" Mode="In" Type="String" />
+            <Parameter Name="ProdPrice" Mode="In" Type="Decimal" />
+            <Parameter Name="ProdSize36Quan" Mode="In" Type="Int32" />
+            <Parameter Name="ProdSize37Quan" Mode="In" Type="Int32" />
+            <Parameter Name="ProdSize38Quan" Mode="In" Type="Int32" />
+            <Parameter Name="ProdSize39Quan" Mode="In" Type="Int32" />
+            <Parameter Name="ProdImageUrl" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="SelectAllCateProds_Result">
+          <Property Type="String" Name="ProdId" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="ProdName" Nullable="false" />
+          <Property Type="String" Name="CateId" Nullable="false" MaxLength="100" />
+          <Property Type="Decimal" Name="ProdPrice" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="ProdSize36Quan" Nullable="false" />
+          <Property Type="Int32" Name="ProdSize37Quan" Nullable="false" />
+          <Property Type="Int32" Name="ProdSize38Quan" Nullable="false" />
+          <Property Type="Int32" Name="ProdSize39Quan" Nullable="false" />
+          <Property Type="String" Name="ProdImageUrl" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SelectAllCates_Result">
+          <Property Type="String" Name="CateId" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="CateName" Nullable="false" />
+          <Property Type="String" Name="CateDes" Nullable="true" />
+          <Property Type="String" Name="CateImageUrl" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SelectAllProds_Result">
+          <Property Type="String" Name="ProdId" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="ProdName" Nullable="false" />
+          <Property Type="String" Name="CateId" Nullable="false" MaxLength="100" />
+          <Property Type="Decimal" Name="ProdPrice" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="ProdSize36Quan" Nullable="false" />
+          <Property Type="Int32" Name="ProdSize37Quan" Nullable="false" />
+          <Property Type="Int32" Name="ProdSize38Quan" Nullable="false" />
+          <Property Type="Int32" Name="ProdSize39Quan" Nullable="false" />
+          <Property Type="String" Name="ProdImageUrl" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FashionFeetModelStoreContainer" CdmEntityContainer="FashionFeetEntities">
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="FashionFeetModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="CateId" ColumnName="CateId" />
+                <ScalarProperty Name="CateName" ColumnName="CateName" />
+                <ScalarProperty Name="CateDes" ColumnName="CateDes" />
+                <ScalarProperty Name="CateImageUrl" ColumnName="CateImageUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="FashionFeetModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ProdId" ColumnName="ProdId" />
+                <ScalarProperty Name="ProdName" ColumnName="ProdName" />
+                <ScalarProperty Name="CateId" ColumnName="CateId" />
+                <ScalarProperty Name="ProdPrice" ColumnName="ProdPrice" />
+                <ScalarProperty Name="ProdSize36Quan" ColumnName="ProdSize36Quan" />
+                <ScalarProperty Name="ProdSize37Quan" ColumnName="ProdSize37Quan" />
+                <ScalarProperty Name="ProdSize38Quan" ColumnName="ProdSize38Quan" />
+                <ScalarProperty Name="ProdSize39Quan" ColumnName="ProdSize39Quan" />
+                <ScalarProperty Name="ProdImageUrl" ColumnName="ProdImageUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="DeleteCate" FunctionName="FashionFeetModel.Store.DeleteCate" />
+          <FunctionImportMapping FunctionImportName="DeleteProd" FunctionName="FashionFeetModel.Store.DeleteProd" />
+          <FunctionImportMapping FunctionImportName="InsertCate" FunctionName="FashionFeetModel.Store.InsertCate" />
+          <FunctionImportMapping FunctionImportName="InsertProd" FunctionName="FashionFeetModel.Store.InsertProd" />
+          <FunctionImportMapping FunctionImportName="InsertProduct" FunctionName="FashionFeetModel.Store.InsertProduct" />
+          <FunctionImportMapping FunctionImportName="SelectAllCateIds" FunctionName="FashionFeetModel.Store.SelectAllCateIds" />
+          <FunctionImportMapping FunctionImportName="SelectAllCateNames" FunctionName="FashionFeetModel.Store.SelectAllCateNames" />
+          <FunctionImportMapping FunctionImportName="SelectAllCateProds" FunctionName="FashionFeetModel.Store.SelectAllCateProds">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FashionFeetModel.SelectAllCateProds_Result">
+                <ScalarProperty Name="ProdId" ColumnName="ProdId" />
+                <ScalarProperty Name="ProdName" ColumnName="ProdName" />
+                <ScalarProperty Name="CateId" ColumnName="CateId" />
+                <ScalarProperty Name="ProdPrice" ColumnName="ProdPrice" />
+                <ScalarProperty Name="ProdSize36Quan" ColumnName="ProdSize36Quan" />
+                <ScalarProperty Name="ProdSize37Quan" ColumnName="ProdSize37Quan" />
+                <ScalarProperty Name="ProdSize38Quan" ColumnName="ProdSize38Quan" />
+                <ScalarProperty Name="ProdSize39Quan" ColumnName="ProdSize39Quan" />
+                <ScalarProperty Name="ProdImageUrl" ColumnName="ProdImageUrl" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SelectAllCates" FunctionName="FashionFeetModel.Store.SelectAllCates">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FashionFeetModel.SelectAllCates_Result">
+                <ScalarProperty Name="CateId" ColumnName="CateId" />
+                <ScalarProperty Name="CateName" ColumnName="CateName" />
+                <ScalarProperty Name="CateDes" ColumnName="CateDes" />
+                <ScalarProperty Name="CateImageUrl" ColumnName="CateImageUrl" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SelectAllProdIds" FunctionName="FashionFeetModel.Store.SelectAllProdIds" />
+          <FunctionImportMapping FunctionImportName="SelectAllProds" FunctionName="FashionFeetModel.Store.SelectAllProds">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FashionFeetModel.SelectAllProds_Result">
+                <ScalarProperty Name="ProdId" ColumnName="ProdId" />
+                <ScalarProperty Name="ProdName" ColumnName="ProdName" />
+                <ScalarProperty Name="CateId" ColumnName="CateId" />
+                <ScalarProperty Name="ProdPrice" ColumnName="ProdPrice" />
+                <ScalarProperty Name="ProdSize36Quan" ColumnName="ProdSize36Quan" />
+                <ScalarProperty Name="ProdSize37Quan" ColumnName="ProdSize37Quan" />
+                <ScalarProperty Name="ProdSize38Quan" ColumnName="ProdSize38Quan" />
+                <ScalarProperty Name="ProdSize39Quan" ColumnName="ProdSize39Quan" />
+                <ScalarProperty Name="ProdImageUrl" ColumnName="ProdImageUrl" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SelectCateIdByCateName" FunctionName="FashionFeetModel.Store.SelectCateIdByCateName" />
+          <FunctionImportMapping FunctionImportName="UpdateCate" FunctionName="FashionFeetModel.Store.UpdateCate" />
+          <FunctionImportMapping FunctionImportName="UpdateProd" FunctionName="FashionFeetModel.Store.UpdateProd" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

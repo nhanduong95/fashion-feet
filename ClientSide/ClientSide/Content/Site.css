@@ -1,0 +1,469 @@
+﻿body {
+    padding-bottom: 20px;
+    padding-top: 50px;
+}
+.container-fluid{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Set padding to keep content from hitting the edges */
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+a:hover{
+    text-decoration: none;
+}
+/*Navigation Bar*/
+.navbar-brand{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    padding-top: 25px;
+}
+.navbar{
+    background-color: #2C3E50;
+    height: 70px;
+}
+.navbar-nav{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    padding-top: 10px;
+}
+.nav-bar-right-custom{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    padding-top: 10px;
+}
+/*End Navigation Bar*/
+/*Homepage Header*/
+header {
+    text-align: center;
+    color: #fff;
+    background-image: url('/Images/banner05.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    opacity: 0.9;
+}
+.header-container{
+    height: 600px;
+    width: auto;
+    padding-top: 200px;
+}
+hr.star-light{
+    max-width: 250px;
+    text-align: center;
+    border: 0;
+    border-top: solid 5px;
+    border-color: #2C3E50;
+}
+hr.star-light:after{
+    content: "\f005";
+    display: inline-block;
+    position: relative;
+    top: -.8em;
+    padding: 2px 7px;
+    font-family: FontAwesome;
+    font-size: 2em;
+    color: #fff;
+    background-color: #2C3E50;
+}
+header .intro-text{
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #2C3E50;
+}
+header .intro-text .name{
+    font-size: 70px;
+}
+header .intro-text .slogan{
+    font-size: 30px;
+    margin-top: 20px;   
+    line-height: 2;
+}
+/*End Homepage Header*/
+/*Homepage Main Content*/
+section{
+    padding: 80px 60px;
+}
+#product h2{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #18BC9C;
+    text-align: center;
+    padding: 10px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    margin-left: 25%;
+    width: 50%;
+}
+#product h2:hover{
+    border-bottom: 3px solid #2C3E50;
+    border-top: 3px solid #2C3E50;
+    color: #2C3E50;
+    transition: border-top ease-in 0.2s, color 0.2s, border-bottom ease-in 0.2s;
+}
+#product .img-circle{
+    margin-left: 45px;
+}
+#product p{
+    text-align: justify;
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    padding: 15px;
+    margin-top: 20px;
+}
+/*End Homepage Main Content*/
+/*Category Banner*/
+.banner-container {
+    color: #fff;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+.banner{
+    height: 200px;
+    width: auto;
+    padding-top: 20px;
+}
+.prod-intro-text{
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #AB0909;
+    text-transform: uppercase;
+    background-color: #F3F3F3;
+    opacity: 0.7;
+    position: absolute;
+    margin-top: 88px;
+    margin-left: -30px;
+    padding: 10px 20px;
+}
+.prod-intro-text .name{
+    font-size: 60px;
+}
+.prod-intro-text .slogan{
+    font-size: 25px;
+    margin-top: 20px;   
+}
+/*End Category Banner*/
+/*Category Products Display*/
+.prod-container{
+    padding-top: 50px;
+}
+.prod{
+    margin: 0 0 15px;
+}
+.prod .prod-link .prod-info{
+    position: absolute;
+    width: 90%;
+    height: 100%;
+    opacity: 0;
+    background-color: #2C3E50;
+    transition: all ease .5s;
+}
+.prod .prod-link .prod-info:hover{
+    opacity: 1;
+}
+.prod .prod-link .prod-info h3{
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;    
+    padding: 0 20px;   
+}
+.prod-name{
+    color: #E6E6E5;
+}
+.prod-price{
+    color: #19B7A0;  
+}
+.prod .prod-link .prod-info h4{
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;    
+    padding: 5px 10px 5px 10px;   
+    color: #19B7A0; 
+    width: 45%;
+    margin-left: 30%;
+}
+.prod .prod-link .prod-info h4:hover{
+    text-align: center;
+    color: #E6E6E5;
+    background-color: #19B7A0;
+    border-radius: 50px;
+    transition: color 0.3s, background-color 0.3s, border-radius 0.3s;
+}
+
+/*End Category Products Display*/
+.bxslider .prod-link .prod-info{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: #2C3E50;
+    transition: all ease .5s;
+}
+.bxslider .prod-link .prod-info:hover{
+    opacity: 1;
+}
+.bxslider .prod-link .prod-info h3{
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;    
+    padding: 0 10px;  
+    font-size: 20px; 
+}
+.bxslider .prod-link .prod-info h4{
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 700;    
+    padding: 5px 10px 5px 10px;   
+    color: #19B7A0; 
+    width: 50%;
+    margin-left: 28%;
+}
+.bxslider .prod-link .prod-info h4:hover{
+    text-align: center;
+    color: #E6E6E5;
+    background-color: #19B7A0;
+    border-radius: 50px;
+    transition: color 0.3s, background-color 0.3s, border-radius 0.3s;
+}
+#prod-details h2{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #19B7A0;
+}
+.related-prods-container{
+    margin-top: 40px;
+}
+.related-prods{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #2C3E50;
+    margin-bottom: 25px;
+}
+dl{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 18px; 
+}
+.icon-custom{
+    margin-left: 7px;
+    font-size: 20px;
+}
+.btn-custom-01{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 17px;
+    color: white;
+    background-color: #19B7A0; 
+}
+.btn-custom-01:hover{
+    background-color: #8CDBD0;
+    font-weight: 400;
+    border-color: #19B7A0;
+}
+/*Error Page*/
+.error-container{
+    margin-top: 50px;
+}
+.text-danger{
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 700;
+}
+.alert{
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+}
+/*End Error Page*/
+/*Cart Page*/
+.title{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+}
+.remove-item{
+    padding: 8px;
+    border-radius: 50px;
+    color: #FDBBB1;
+    background-color: #FA2810;
+}
+.remove-item:hover{
+    color: #FA2810;
+    background-color: #FDBBB1;
+    transition: color 0.3s, background-color 0.3s;
+}
+th{
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+}
+td{
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+/*End Cart Page*/
+/*Register Page*/
+.banner-02{
+    height: 130px;
+    width: auto;
+}
+.register-intro-text{
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #AB0909;
+    text-transform: uppercase;
+    background-color: #D9CEB5;
+    opacity: 0.7;
+    position: absolute;
+    margin-top: 40px;
+    margin-left: -30px;
+    padding: 10px 20px;
+}
+.register-intro-text  .register-title{
+    font-size: 60px;
+}
+.register-intro-text .shop-name{
+    font-size: 25px;
+    margin-top: 20px; 
+}
+.control-label{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+}
+fieldset{
+    border: 2px solid #EEEEEE;
+    border-radius: 5px;
+    padding: 20px;
+}
+.btn-danger{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+.bs-component{
+    background-color: #F0F0E4;
+    border: 5px solid #C8BFAA;
+    border-radius: 10px;
+}
+/*End Register Page*/
+/*Login Page*/
+.login-intro-text{
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #AB0909;
+    text-transform: uppercase;
+    background-color: #EDF4FA;
+    opacity: 0.7;
+    position: absolute;
+    margin-top: 40px;
+    margin-left: -30px;
+    padding: 10px 20px;
+}
+.login-intro-text .login-title{
+    font-size: 60px;
+}
+.login-intro-text .shop-name {
+    font-size: 25px;
+    margin-top: 20px;
+}
+.register-redirect{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+.icon-custom-02{
+    margin-right: 7px;
+    font-size: 17px;
+}
+label{
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
+}
+/*End Login Page*/
+/*Check Out Page*/
+.banner-03{
+    height: 180px;
+    width: auto;
+}
+.checkout-intro-text{
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #AB0909;
+    text-transform: uppercase;
+    background-color: #D5D1C5;
+    opacity: 0.9;
+    position: absolute;
+    margin-top: 40px;
+    margin-left: -30px;
+    padding: 10px 20px;
+}
+.checkout-intro-text .login-title{
+    font-size: 60px;
+}
+.checkout-intro-text .shop-name {
+    font-size: 25px;
+    margin-top: 20px;
+}
+.info-display-text{
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
+    position: relative;
+    font-size: 17px;
+    top: 10px;
+}
+.bs-component-custom{
+    background-color: white;
+}
+.log{
+    font-family: 'Varela Round', sans-serif;
+    font-style: italic;
+}
+/*End Check Out Page*/
+/*Summary Page*/
+.form-control-static{
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
+    position: relative;
+    top: 3px;
+}
+.text-info{
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: #D9EDF7;
+    padding: 15px;
+}
+.divider{
+    border: 0;
+    border-top: solid 1px;
+    border-color: #808080;
+}
+.bought-items-info{
+    font-family: 'Varela Round', sans-serif;
+    font-size: 16px;
+}
+/*End Summary Page*/

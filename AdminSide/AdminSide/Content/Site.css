@@ -1,0 +1,280 @@
+﻿/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: #F4F4F4;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    /*padding-left: 15px;
+    padding-right: 15px;*/
+    margin-top: 50px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set widths on the form inputs since otherwise they're 100% wide */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="select"] {
+    /*max-width: 280px;*/
+    padding-left: 10px!important;
+    margin-top: 5px!important;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .jumbotron {
+        margin-top: 20px;
+    }
+    .body-content {
+        padding: 0;
+    }
+}
+.navbar-custom{
+    height: 70px;
+    /*background-color: #0F5769;*/
+}
+.navbar-brand-custom{
+    font-family: 'Lobster', cursive;
+    font-size: 30px;
+    padding-top: 25px;
+}
+.navbar-right-custom{
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    padding-top: 10px;
+}
+.navbar-fa-custom{
+    padding-right: 10px;
+}
+.panel-custom{
+    border-radius: 0;
+}
+.prod-panel-heading-custom{
+    background-color: #336895;
+}
+.cate-panel-heading-custom{
+    background-color: #2B957A;
+}
+.panel-title-custom{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: #FCFCFC;
+}
+h3{
+    position:relative;
+    top: 3px;
+}
+.panel-icon-style-01{
+    position: relative;
+    right: 16px;
+}
+.panel-icon-style-01:hover{
+    text-decoration: none;
+    color: #FCFCFC;
+    transform: rotate(360deg);
+    transition: transform linear 0.4s;
+}
+.panel-icon-style-02{
+    margin-right: 10px;
+}
+.panel-icon-style-02:hover{
+    text-decoration: none;
+    color: #FCFCFC;
+    transform: rotate(360deg);
+    transition: transform linear 0.4s;
+}
+.panel-icon-style-03{
+    font-size: 22px;
+    margin-right: 10px;
+}
+.panel-icon-style-03:hover{
+    text-decoration: none;
+    color: #FCFCFC;
+    transform: rotate(360deg);
+    transition: transform linear 0.4s;
+}
+.panel-icon-style-04{
+    font-size: 22px;
+    position: relative;
+    top: 8px;
+    margin-right: 10px;
+}
+.panel-icon-style-04:hover{
+    text-decoration: none;
+    color: #FCFCFC;
+    transform: rotate(360deg);
+    transition: transform linear 0.4s;
+}
+.header-table{
+    font-family: 'Montserrat', sans-serif;
+    border-bottom: solid 2px #5D7B9D;
+}
+.prod-row-table{
+    font-family: 'Montserrat', sans-serif;
+    border-bottom: solid 1px #ACC3D4;
+}
+.cate-row-table{
+    font-family: 'Montserrat', sans-serif;
+    border-bottom: solid 1px #ACC3D4;
+    text-align: left;
+}
+.delete-btn{
+    padding: 7px;
+    border-radius: 5px;
+    color: #FCFFFF;
+    background-color: #EB3C00;
+}
+.delete-btn:hover{
+    text-decoration: none;
+    color: #EB3C00;
+    background-color: #FBD8CC;
+    transition: background-color 0.4s, color 0.4s;
+}
+.edit-btn{
+    /*font-family: 'Montserrat', sans-serif;
+    font-size: 20px;*/
+    padding: 7px 4px 4px 7px;
+    border-radius: 5px;
+    color: #FCFFFF;
+    background-color: #00A300;
+}
+.edit-btn:hover{
+    text-decoration: none;
+    color: #00A300;
+    background-color: #CCEDCC;
+    transition: background-color 0.4s, color 0.4s;
+}
+.cancel-btn{
+    padding: 6px;
+    color: #FFFCFD;
+    border-radius: 50px;
+    background-color: #BD3B24;
+}
+
+.cancel-btn:hover{
+    text-decoration: none;
+    background-color: #F27B53;
+    font-size: 18px;
+    border-radius: 5px;
+    color: #FFFCFD;
+    transition: background-color 0.4s, font-size 0.4s, border-radius 0.4s;
+}
+.cancel-btn-custom{
+    font-size: 11px;
+}
+.cancel-btn-custom:hover{
+    font-size: 15px;
+}
+.save-btn{
+    padding: 6px 4px;
+    border-radius: 50px;
+    color: #FFFCFD;
+    background-color: #185D00;
+}
+.save-btn:hover{
+    text-decoration: none;
+    background-color: #6CC66C;
+    font-size: 18px;
+    border-radius: 5px;
+    color: #FFFCFD;
+    transition: background-color 0.4s, font-size 0.4s, border-radius 0.4s;
+}
+.save-btn-custom{
+    font-size: 11px;
+    margin-bottom: 2px;
+}
+.save-btn-custom:hover{
+    font-size: 15px;
+}
+.select-btn{
+    font-family: 'Montserrat', sans-serif;
+    padding: 5px;
+    background-color: #52ADCD;
+    border-color: #52ADCD;
+    position: relative;
+    top: 3px;
+}
+.cate-create-btn{
+    font-family: 'Montserrat', sans-serif;
+    padding: 8px;
+    color: #FFFCFD;
+    background-color: #6BB5A2;
+    border-color: #6BB5A2 ;
+}
+.cate-create-btn:hover{
+    color: #FFFCFD;
+    background-color: #1BA376;
+}
+.prod-create-btn{
+    font-family: 'Montserrat', sans-serif;
+    padding: 8px;
+    color: #FFFCFD;
+    background-color: #52ADCD;
+    border-color: #52ADCD;
+}
+.gridview-pager-custom{
+    padding: 2px;
+}
+.gridview-pager-custom a{
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    margin: auto 3%;
+    padding: 6px;
+    background-color: #E3DFDA;
+}
+.gridview-pager-custom a:hover{
+    background-color: #786677;
+    color: #C7C7CF!important;
+    transition: color 0.4s, background-color 0.4s;
+}
+.gridview-pager-custom span{
+    font-family: 'Montserrat', sans-serif;
+    background-color: #594F61;
+    color: #C7C7CF;
+    padding: 6px;
+}
+.product-type{
+    line-height: 1.1;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    color: #EBEEF5;
+    position: relative;
+    top: 4px;
+    text-transform: uppercase;
+    word-spacing: 4px;
+}
+.prod-id-custom{
+    padding-right: 10px!important;
+}
+.prod-gridview-custom{
+    margin-top: 20px;
+    /*border-left: solid 1px #ACC3D4;
+    border-right: solid 1px #ACC3D4;
+    border-bottom: 0;
+    border-top:0;*/
+}
+/*.prod-text-box-custom{
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: left !important;
+}*/
+.error-message{
+    font-family: 'Montserrat', sans-serif;
+    text-align: left;
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+
+

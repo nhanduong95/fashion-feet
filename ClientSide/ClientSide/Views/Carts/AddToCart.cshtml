@@ -1,0 +1,88 @@
+﻿@model ClientSide.Models.AddToCartDisplay
+
+@{
+    ViewBag.Title = "Add To Cart";
+}
+@using (Html.BeginForm(Model.cartItem))
+{
+    @Html.AntiForgeryToken()
+    <section id="prod-details">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-lg-offset-2">
+                    <img src="@Url.Content(ViewBag.ImageUrl)" class="img-responsive" />
+                </div>
+                <div class="col-lg-4">
+                    <h2>@Html.DisplayFor(model => model.cartItem.ItemName)</h2>
+                    <dl class="dl-horizontal">
+                        <dt>ID:</dt>
+                        <dd>@Html.DisplayFor(model => model.cartItem.ItemId)</dd>
+                        <dt>Price: </dt>
+                        <dd>$@Html.DisplayFor(model => model.cartItem.PricePerItem)</dd>
+                        <dt>Size: </dt>
+                        <dd>
+                            @Html.EditorFor(model => model.cartItem.ItemSize)<br />
+                            @Html.ValidationMessageFor(model => model.cartItem.ItemSize, "", new { @class = "text-danger" })
+                        </dd>
+                        <dt>Quantity: </dt>
+                        <dd>
+                            @Html.EditorFor(model => model.cartItem.ItemQuan)<br />
+                            @Html.ValidationMessageFor(model => model.cartItem.ItemQuan, "", new { @class = "text-danger" })
+                        </dd>
+                    </dl>
+                    @Html.HiddenFor(model => model.cartItem.ItemId)
+                    @Html.HiddenFor(model => model.cartItem.ItemName)
+                    @Html.HiddenFor(model => model.cartItem.PricePerItem)
+                    <div class="row">
+                        <div class="col-lg-offset-7">
+                            <button type="submit" class="btn btn-default btn-custom-01"><i class="fa fa-cart-plus fa-lg"></i> Add To Cart</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row related-prods-container">
+                <h3 class="related-prods col-lg-offset-1"> RELATED PRODUCTS</h3>
+            </div>
+            <div class="row">
+                <ul class="bxslider" style="width: auto; position: relative;">
+                    @foreach (var item in Model.relatedProds)
+                    {
+                        <li class="slide">
+                            <a class="prod-link" data-toggle="modal"
+                               href="@Url.Action("Details","Products",
+                                     new { prodId = item.ProdId, prodName = item.ProdName, prodCateId = item.CateId })">
+                                <div class="prod-info">
+                                    <div class="prod-info-content">
+                                        <h3 class="prod-name">@Html.DisplayFor(i => item.ProdName)</h3>
+                                        <h3 class="prod-price">$@Html.DisplayFor(i => item.ProdPrice)</h3>
+                                        <h4 id="details-link">See More</h4>
+                                    </div>
+                                </div>
+                                <img src="@Html.DisplayFor(i => item.ProdImageUrl)" title="@Html.DisplayFor(i => item.ProdName)" />
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </section>
+}
+
+
+
+<script>
+    $(document).ready(function () {
+        $('.bxslider').bxSlider({
+            slideWidth: 220,
+            minSlides: 3,
+            maxSlides: 4,
+            moveSlides: 3,
+            slideMargin: 10,
+            caption: true
+        });
+    });
+</script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

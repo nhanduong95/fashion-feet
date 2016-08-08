@@ -1,0 +1,103 @@
+﻿@model ClientSide.Models.Order
+
+@{
+    ViewBag.Title = "Check Out";
+}
+<section class="banner-container" style="background-image: url(/Images/checkout.jpg);">
+    <div class="banner-02">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="checkout-intro-text">
+                    <span class="login-title">@ViewBag.Title</span><br />
+                    <span class="shop-name">FASHION FEET</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="row">
+        <div class="col-lg-offset-3 col-lg-6">
+            <div class="bs-component bs-component-custom">
+                <fieldset>
+                    @using (Html.BeginForm(Model))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-horizontal">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ClientName, htmlAttributes: new { @class = "control-label col-md-4" })
+                                <div class="col-md-8">
+                                    <span class="info-display-text">@Html.DisplayFor(model => model.ClientName)</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.TotalPayment, htmlAttributes: new { @class = "control-label col-md-4" })
+                                <div class="col-md-8">
+                                    <span class="info-display-text">$@Html.DisplayFor(model => model.TotalPayment)</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ClientPhone, htmlAttributes: new { @class = "control-label col-md-4" })
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.ClientPhone, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.ClientPhone, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ClientAddress, htmlAttributes: new { @class = "control-label col-md-4" })
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.ClientAddress, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.ClientAddress, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ClientCreditCardNo, htmlAttributes: new { @class = "control-label col-md-4" })
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.ClientCreditCardNo, new { htmlAttributes = new { @class = "form-control", @id = "CreditCardNo" } })
+                                    @Html.ValidationMessageFor(model => model.ClientCreditCardNo, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ClientCreditCardOwner, htmlAttributes: new { @class = "control-label col-md-4"})
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.ClientCreditCardOwner, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.ClientCreditCardOwner, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-7 col-md-offset-1">
+                                    <div class="log text-warning"></div>
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="submit" value="Submit" class="btn btn-danger" />
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </fieldset>
+            </div>
+        </div>
+    </div>             
+</section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Styles.Render("~/Content/min.css")
+    @Styles.Render("~/Content/css")
+<script>
+        $(function() {
+            $("#CreditCardNo").validateCreditCard(function(result) {
+                $(".log").html("<strong>Card type:</strong> " + (result.card_type == null ? "-" : result.card_type.name)
+                    + "<br><strong>Valid:</strong> " + result.valid);
+            });
+        });
+</script>
+}
+@*<script src="~/Scripts/jquery.creditCardValidator.js"></script>*@
+
+
+

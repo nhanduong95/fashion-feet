@@ -1,0 +1,62 @@
+﻿@using ClientSide.Models
+@{
+    ViewBag.Title = "Your Cart";
+}
+@{
+    List<CartItem> items = (List<CartItem>)Session["cart"];
+}
+
+<section class="container" style="padding-top: 50px;">
+    <div id="cart-page">
+        <h2 class="title">What's In Your Cart?</h2>
+        <p class="text-right bought-items-info"><strong>Total Payment:</strong> $ @ViewBag.TotalPaidAmount</p>
+        <p class="text-right bought-items-info"><strong>Total Items:</strong> @ViewBag.CartItemQuan</p>
+        <table class="table table-striped table-hover" id="cart">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price Per Item</th>
+                <th>Size</th>
+                <th>Quantity</th>
+                <th>Sub Total</th>
+                <th></th>
+            </tr>
+            @foreach (var cartItem in items)
+            {
+                <tr style="text-align: center;">
+                    <td>@cartItem.ItemId</td>
+                    <td>@cartItem.ItemName</td>
+                    <td>@cartItem.PricePerItem</td>
+                    <td>@cartItem.ItemSize</td>
+                    <td>@cartItem.ItemQuan</td>
+                    <td>@(cartItem.ItemQuan * cartItem.PricePerItem)</td>
+                    <td>
+                        <a href="@Url.Action("Remove", "Carts",
+                        new { itemId = cartItem.ItemId, itemSize = cartItem.ItemSize})" class="remove-item">
+                            <i class="fa fa-times fa-lg"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="row">
+        <a href="@Url.Action("CheckOut","Orders")" class="btn btn-default btn-custom-01"><span class="icon-custom-02"><i class="fa fa-cart-arrow-down fa-lg"></i></span> Check Out</a>
+    </div>
+</section>
+@section Scripts {
+    <script src="~/Scripts/smartpaginator.js"></script>
+    <link href="~/Content/smartpaginator.css" rel="stylesheet" />
+    <script>
+        $(document).ready(function () {
+            $("#cart-page").smartpaginator({
+                totalrecords: @items.Count,
+                recordsperpage: 4,
+                datacontainer: 'cart',
+                dataelement: 'tr',
+                theme: 'green',
+                controlsalways:false,
+            });
+        });
+    </script>
+}

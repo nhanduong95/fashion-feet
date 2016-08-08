@@ -1,0 +1,156 @@
+﻿@model ClientSide.Models.ProdDetailsDisplay
+
+@{
+    ViewBag.Title = ViewBag.ProdName;
+}
+<section id="prod-details">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-2">
+                <img src="@Url.Content(Model.displayProd.ProdImageUrl)" class="img-responsive" />
+            </div>
+            <div class="col-lg-4">
+                <h2>@Html.DisplayFor(model => model.displayProd.ProdName)</h2>
+                <dl class="dl-horizontal">
+                    <dt>Price: </dt>
+                    <dd>$@Html.DisplayFor(model => model.displayProd.ProdPrice)</dd>
+                    <dt>Size 36 Quantity: </dt>
+                    <dd class="">@Html.DisplayFor(model => model.displayProd.ProdSize36Quan)</dd>
+                    <dt>Size 37 Quantity: </dt>
+                    <dd>@Html.DisplayFor(model => model.displayProd.ProdSize37Quan)</dd>
+                    <dt>Size 38 Quantity: </dt>
+                    <dd>@Html.DisplayFor(model => model.displayProd.ProdSize38Quan)</dd>
+                    <dt>Size 39 Quantity: </dt>
+                    <dd>@Html.DisplayFor(model => model.displayProd.ProdSize39Quan)</dd>
+                </dl>
+                    
+                <div class="row">
+                    <div class="col-lg-offset-7">
+                        <a class="btn btn-default btn-lg btn-custom-01" href="@Url.Action("AddToCart", "Carts",
+                        new { prodId = Model.displayProd.ProdId, prodName = Model.displayProd.ProdName,
+                            prodCateId = Model.displayProd.CateId, prodPrice = Model.displayProd.ProdPrice,
+                            prodImage = Model.displayProd.ProdImageUrl})">
+                            Buy Now <span class="icon-custom"><i class="fa fa-hand-o-right fa-lg"></i></span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row related-prods-container">
+            <h3 class="related-prods col-lg-offset-1"> RELATED PRODUCTS</h3>
+        </div>
+        <div class="row">
+            <ul class="bxslider" style="width: auto; position: relative;">
+                @foreach (var item in Model.relatedProds)
+                {
+                    <li class="slide">
+                        <a class="prod-link" data-toggle="modal"
+                            href="@Url.Action("Details","Products",
+                    new { prodId = item.ProdId, prodName = item.ProdName, prodCateId = item.CateId })">
+                            <div class="prod-info">
+                                <div class="prod-info-content">
+                                    <h3 class="prod-name">@Html.DisplayFor(i => item.ProdName)</h3>
+                                    <h3 class="prod-price">$@Html.DisplayFor(i => item.ProdPrice)</h3>
+                                    <h4 id="details-link">See More</h4>
+                                </div>
+                            </div>
+                            <img src="@Html.DisplayFor(i => item.ProdImageUrl)" title="@Html.DisplayFor(i => item.ProdName)" />
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    $(document).ready(function () {
+        $('.bxslider').bxSlider({
+            slideWidth: 220,
+            minSlides: 3,
+            maxSlides: 4,
+            moveSlides: 3,
+            slideMargin: 10,
+            caption: true           
+        });
+    });
+</script>
+
+@*<h2>Details</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProdName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProdName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProdPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProdPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProdSize36Quan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProdSize36Quan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProdSize37Quan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProdSize37Quan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProdSize38Quan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProdSize38Quan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProdSize39Quan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProdSize39Quan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProdImageUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProdImageUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.CateName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.CateName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProdId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>*@

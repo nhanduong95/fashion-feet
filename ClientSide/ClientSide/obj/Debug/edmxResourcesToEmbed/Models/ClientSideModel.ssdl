@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FashionFeetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CateId" />
+    </Key>
+    <Property Name="CateId" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CateName" Type="varchar(max)" Nullable="false" />
+    <Property Name="CateDes" Type="varchar(max)" />
+    <Property Name="CateImageUrl" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProdId" />
+    </Key>
+    <Property Name="ProdId" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ProdName" Type="varchar(max)" Nullable="false" />
+    <Property Name="CateId" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ProdPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="ProdSize36Quan" Type="int" Nullable="false" />
+    <Property Name="ProdSize37Quan" Type="int" Nullable="false" />
+    <Property Name="ProdSize38Quan" Type="int" Nullable="false" />
+    <Property Name="ProdSize39Quan" Type="int" Nullable="false" />
+    <Property Name="ProdImageUrl" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Product__CateId">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CateId" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="CateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="DeleteCate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CateId" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteProd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProdId" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="InsertCate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CateId" Type="varchar" Mode="In" />
+    <Parameter Name="CateName" Type="varchar(max)" Mode="In" />
+    <Parameter Name="CateDes" Type="varchar(max)" Mode="In" />
+    <Parameter Name="CateImageUrl" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="InsertProd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProdId" Type="varchar" Mode="In" />
+    <Parameter Name="ProdName" Type="varchar(max)" Mode="In" />
+    <Parameter Name="CateId" Type="varchar" Mode="In" />
+    <Parameter Name="ProdPrice" Type="decimal" Mode="In" />
+    <Parameter Name="ProdSize36Quan" Type="int" Mode="In" />
+    <Parameter Name="ProdSize37Quan" Type="int" Mode="In" />
+    <Parameter Name="ProdSize38Quan" Type="int" Mode="In" />
+    <Parameter Name="ProdSize39Quan" Type="int" Mode="In" />
+    <Parameter Name="ProdImageUrl" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="InsertProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProdId" Type="varchar" Mode="In" />
+    <Parameter Name="ProdName" Type="text" Mode="In" />
+    <Parameter Name="CateId" Type="varchar" Mode="In" />
+    <Parameter Name="ProdPrice" Type="decimal" Mode="In" />
+    <Parameter Name="ProdSize36Quan" Type="int" Mode="In" />
+    <Parameter Name="ProdSize37Quan" Type="int" Mode="In" />
+    <Parameter Name="ProdSize38Quan" Type="int" Mode="In" />
+    <Parameter Name="ProdSize39Quan" Type="int" Mode="In" />
+    <Parameter Name="ProdImageUrl" Type="text" Mode="In" />
+  </Function>
+  <Function Name="SelectAllCateIds" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectAllCateNames" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectAllCateProds" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CateId" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SelectAllCates" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectAllProdIds" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectAllProds" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectCateIdByCateName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CateName" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="UpdateCate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CateId" Type="varchar" Mode="In" />
+    <Parameter Name="CateName" Type="varchar(max)" Mode="In" />
+    <Parameter Name="CateDes" Type="varchar(max)" Mode="In" />
+    <Parameter Name="CateImageUrl" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="UpdateProd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProdId" Type="varchar" Mode="In" />
+    <Parameter Name="ProdName" Type="varchar(max)" Mode="In" />
+    <Parameter Name="CateId" Type="varchar" Mode="In" />
+    <Parameter Name="ProdPrice" Type="decimal" Mode="In" />
+    <Parameter Name="ProdSize36Quan" Type="int" Mode="In" />
+    <Parameter Name="ProdSize37Quan" Type="int" Mode="In" />
+    <Parameter Name="ProdSize38Quan" Type="int" Mode="In" />
+    <Parameter Name="ProdSize39Quan" Type="int" Mode="In" />
+    <Parameter Name="ProdImageUrl" Type="varchar(max)" Mode="In" />
+  </Function>
+  <EntityContainer Name="FashionFeetModelStoreContainer">
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Product__CateId" Association="Self.FK__Product__CateId">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
